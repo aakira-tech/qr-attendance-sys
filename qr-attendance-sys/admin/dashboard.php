@@ -5,7 +5,6 @@ requireLogin();
 $today = date('Y-m-d');
 $isAdmin = ($_SESSION['role'] === 'admin');
 
-// Initials for avatar
 $initials = '';
 if (!empty($_SESSION['full_name'])) {
     $parts = explode(' ', $_SESSION['full_name']);
@@ -15,7 +14,6 @@ if (!empty($_SESSION['full_name'])) {
     $initials = substr($initials, 0, 2);
 }
 
-// ==================== STATS ====================
 if ($isAdmin) {
     $totalStudents = $pdo->query("SELECT COUNT(*) FROM students")->fetchColumn();
 
