@@ -4,7 +4,6 @@ requireLogin();
 
 $isAdmin = ($_SESSION['role'] === 'admin');
 
-// Initials
 $initials = '';
 if (!empty($_SESSION['full_name'])) {
     $parts = explode(' ', $_SESSION['full_name']);
