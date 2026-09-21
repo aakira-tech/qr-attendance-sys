@@ -4,9 +4,8 @@ requireLogin();
 
 $isAdmin = ($_SESSION['role'] === 'admin');
 $message = '';
-$messageType = 'message'; // message | error-message
+$messageType = 'message'; 
 
-// Initials
 $initials = '';
 if (!empty($_SESSION['full_name'])) {
     $parts = explode(' ', $_SESSION['full_name']);
@@ -16,7 +15,6 @@ if (!empty($_SESSION['full_name'])) {
     $initials = substr($initials, 0, 2);
 }
 
-// Determine section rules
 if ($isAdmin) {
     $sections = $pdo->query("SELECT * FROM sections ORDER BY section_name")->fetchAll();
     $autoSectionId = null;
@@ -33,7 +31,6 @@ if ($isAdmin) {
     $sections = [];
 }
 
-// ==================== HANDLE SUBMIT ====================
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $student_id  = trim($_POST['student_id']);
     $full_name   = trim($_POST['full_name']);
